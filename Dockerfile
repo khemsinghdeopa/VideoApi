@@ -9,8 +9,8 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /src
-COPY ["StreamingWebService\StreamingWebService.csproj", "StreamingWebService\"]
-RUN dotnet restore "StreamingWebService\StreamingWebService.csproj"
+COPY ["StreamingWebService.csproj", "StreamingWebService\"]
+RUN dotnet restore "StreamingWebService.csproj"
 COPY . .
 WORKDIR "/src/StreamingWebService"
 RUN dotnet build "StreamingWebService.csproj" -c Release -o /app/build
